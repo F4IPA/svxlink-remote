@@ -1,0 +1,13 @@
+[Unit]
+Description=SvxLink Remote by F4IPA
+After=multi-user.target
+ 
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /opt/svxlink-remote/main.py
+Restart=always
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
