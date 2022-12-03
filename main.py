@@ -3,9 +3,8 @@
 import flask
 import os
 
-PATH = os.getcwd() + '/'
 DTMF = [96, 97, 98, 99, 100, 101, 102, 104, 200, 1000]
-KEY  = str(open(PATH + 'key.txt', 'r').read()).strip()
+KEY  = str(open('key.txt', 'r').read()).strip()
 
 app = flask.Flask(__name__)
 
