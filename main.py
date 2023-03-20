@@ -4,7 +4,7 @@ import flask
 import os
 
 DTMF = [96, 97, 98, 99, 100, 101, 102, 104, 200, 1000]
-KEY  = str(open('key.txt', 'r').read()).strip()
+KEY  = str(open('/opt/svxlink-remote/key.txt', 'r').read()).strip()
 
 app = flask.Flask(__name__)
 
