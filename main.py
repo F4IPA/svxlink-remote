@@ -3,7 +3,7 @@
 import flask
 import os
 
-DTMF = [49, 59, 96, 97, 98, 99, 100, 101, 102, 104, 200, 1000]
+DTMF = [49, 59, 696, 697, 698, 699, 6100, 6101, 6102, 6104, 6200, 1000]
 KEY  = str(open('/opt/svxlink-remote/key.txt', 'r').read()).strip()
 
 app = flask.Flask(__name__)
