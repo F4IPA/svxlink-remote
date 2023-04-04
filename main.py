@@ -3,8 +3,8 @@
 import flask
 import os
 
-DTMF = [49, 59, 696, 697, 698, 699, 6100, 6101, 6102, 6104, 6200, 1000]
-KEY  = str(open('/opt/svxlink-remote/key.txt', 'r').read()).strip()
+CODES = ['ri49', 'nord', 'rrf', 'fon', 'tec', 'int', 'bav', 'loc', 'exp', 'reg']
+KEY = str(open('/opt/svxlink-remote/key.txt', 'r').read()).strip()
 
 app = flask.Flask(__name__)
 
@@ -15,10 +15,10 @@ def index():
 @app.route('/dtmf', methods=['GET','POST'])
 def exec_dtmf():
     key = str(flask.request.json['key']).strip()
-    code = int(flask.request.json['code'])
+    code = str(flask.request.json['code'])
     if key != KEY: return 'error'
-    if code not in DTMF: return 'error'    
-    os.system(f'echo {code}# > /tmp/dtmf_uhf')
+    if code not in CODES: return 'error'    
+    os.system(f'/etc/spotnik/restart.{code}')
     print(f'exec dtmf {code}')
     return 'ok'
 
